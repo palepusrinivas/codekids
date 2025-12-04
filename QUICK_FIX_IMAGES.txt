@@ -1,0 +1,37 @@
+================================================================================
+QUICK FIX FOR IMAGES - DO THIS NOW
+================================================================================
+
+The images are failing because they're not in: codekids-react/public/assest
+
+SOLUTION - Run this command in the codekids-react folder:
+================================================================================
+
+    SETUP_IMAGES.bat
+
+OR manually copy:
+
+1. Open File Explorer
+2. Go to: codekids_tech-main\public\assest
+3. Select ALL files (Ctrl+A)
+4. Copy (Ctrl+C)  
+5. Go to: codekids-react\public\assest (create folder if needed)
+6. Paste (Ctrl+V)
+
+AFTER COPYING:
+================================================================================
+1. STOP dev server (Ctrl+C)
+2. RESTART: npm run dev
+3. HARD REFRESH browser: Ctrl+Shift+R
+
+VERIFICATION:
+================================================================================
+Check these files exist:
+- codekids-react\public\assest\kids robotics.jpg
+- codekids-react\public\assest\home page slide1.png
+- codekids-react\public\assest\codekids_finallogo.jpg
+
+If they exist, images will load after restart!
+
+================================================================================
+

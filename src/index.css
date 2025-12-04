@@ -1,0 +1,729 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import './styles/responsive.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scrolling for all anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize rendering performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Performance optimizations */
+img, video {
+  content-visibility: auto;
+  decoding: async;
+}
+
+/* Lazy load images below the fold */
+img[loading="lazy"] {
+  content-visibility: auto;
+  contain-intrinsic-size: 400px;
+}
+
+/* Optimize animations for performance */
+.animate-glow,
+.animate-pulse,
+.animate-spin,
+[class*="animate-"] {
+  will-change: opacity, transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU acceleration for animated elements */
+[data-framer-component],
+.motion-div,
+[class*="motion"] {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Optimize image loading */
+img {
+  content-visibility: auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Reduce repaints */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Optimize scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fast button/link interactions */
+button,
+a,
+[role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Enhanced Mobile Responsiveness - Small devices (320px - 640px) */
+@media (max-width: 640px) {
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Better text rendering on mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-size: 16px; /* Prevent zoom on iOS */
+    line-height: 1.6;
+  }
+  
+  /* Better touch scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Touch-friendly minimum sizes for mobile */
+  button,
+  a[role="button"],
+  input[type="submit"],
+  input[type="button"],
+  .btn,
+  [class*="button"],
+  [class*="Button"] {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0.875rem 1.25rem;
+    font-size: 16px; /* Prevent zoom on iOS */
+    touch-action: manipulation;
+  }
+  
+  /* Improved spacing for mobile */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  
+  /* Better card spacing on mobile */
+  .glass-card {
+    margin-bottom: 1rem;
+    padding: 1.25rem;
+  }
+  
+  /* Improved grid gaps on mobile */
+  .grid {
+    gap: 1rem;
+  }
+  
+  /* Better heading sizes on mobile */
+  h1 {
+    font-size: 1.875rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 0.875rem;
+    word-wrap: break-word;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    word-wrap: break-word;
+  }
+  
+  h4, h5, h6 {
+    word-wrap: break-word;
+  }
+  
+  /* Better paragraph spacing */
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Improved input fields */
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: 0.875rem 1rem;
+    min-height: 48px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Better link spacing */
+  a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    word-wrap: break-word;
+  }
+  
+  /* Container improvements */
+  .container,
+  [class*="max-w"] {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Image responsiveness */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Table responsiveness */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Better modal/popup sizing */
+  [role="dialog"],
+  .modal,
+  .popup {
+    width: calc(100vw - 2rem);
+    max-width: calc(100vw - 2rem);
+    margin: 1rem;
+  }
+  
+  /* Hide non-essential elements on mobile */
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  /* Stack elements vertically on mobile */
+  .mobile-stack {
+    flex-direction: column;
+  }
+  
+  /* Full width on mobile */
+  .mobile-full {
+    width: 100% !important;
+  }
+}
+
+/* Tablet optimizations (641px - 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  button,
+  a[role="button"],
+  input[type="submit"],
+  input[type="button"] {
+    min-height: 48px;
+    padding: 0.875rem 1.5rem;
+    touch-action: manipulation;
+  }
+  
+  /* Better spacing on tablets */
+  section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Better card spacing on tablets */
+  .glass-card {
+    padding: 1.5rem;
+  }
+  
+  /* Improved input fields */
+  input,
+  textarea,
+  select {
+    padding: 0.875rem 1.25rem;
+    min-height: 48px;
+  }
+  
+  /* Container improvements */
+  .container,
+  [class*="max-w"] {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  /* Better heading sizes on tablet */
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Large mobile / Small tablet (481px - 640px) */
+@media (min-width: 481px) and (max-width: 640px) {
+  section {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .glass-card {
+    padding: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Extra small devices (320px - 480px) */
+@media (max-width: 480px) {
+  section {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .glass-card {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+  }
+  
+  button,
+  a[role="button"] {
+    padding: 0.75rem 1rem;
+    font-size: 14px;
+  }
+}
+
+@layer base {
+  :root {
+    --ck-bg: #F8FAFF;
+    --ck-bg-soft: #EFF4FF;
+    --ck-white: #FFFFFF;
+    --ck-text-dark: #111827;
+    --ck-text-body: #374151;
+    --ck-text-muted: #6B7280;
+    --ck-pink: #FF4B8F;
+    --ck-purple: #7B3DFF;
+    --ck-blue: #2ED0FF;
+    --ck-border-soft: #E0E7FF;
+
+    --background: 248 100% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 338 100% 64%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 100% 94%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 217 91% 60%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 262 100% 62%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 239 50% 91%;
+    --input: 239 50% 91%;
+    --ring: 338 100% 64%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --ck-bg: #0F1419;
+    --ck-bg-soft: #1A1F2E;
+    --ck-white: #1E2636;
+    --ck-text-dark: #F9FAFB;
+    --ck-text-body: #E5E7EB;
+    --ck-text-muted: #9CA3AF;
+    --ck-pink: #FF4B8F;
+    --ck-purple: #7B3DFF;
+    --ck-blue: #2ED0FF;
+    --ck-border-soft: #2D3748;
+
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 338 100% 64%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 262 100% 62%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 338 100% 64%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body transition-colors duration-300;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+  .font-body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .font-code {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  .bg-ck-gradient-main {
+    background: linear-gradient(90deg, #FF4B8F 0%, #7B3DFF 50%, #2ED0FF 100%);
+  }
+  .bg-ck-hero {
+    background: radial-gradient(circle at top left, rgba(255, 75, 143, 0.15), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(46, 208, 255, 0.15), transparent 55%);
+  }
+  .text-ck-gradient {
+    @apply bg-ck-gradient-main bg-clip-text text-transparent;
+  }
+  .glass-card {
+    @apply bg-white/70 dark:bg-white/5 backdrop-blur-md border border-[#E0E7FF] dark:border-white/10 rounded-2xl shadow-sm;
+  }
+  
+  /* Responsive utilities */
+  .mobile-stack {
+    @media (max-width: 640px) {
+      flex-direction: column;
+    }
+  }
+  
+  .mobile-full {
+    @media (max-width: 640px) {
+      width: 100% !important;
+    }
+  }
+  
+  .mobile-center {
+    @media (max-width: 640px) {
+      text-align: center;
+    }
+  }
+  
+  .mobile-hide {
+    @media (max-width: 640px) {
+      display: none !important;
+    }
+  }
+  
+  .mobile-show {
+    @media (min-width: 641px) {
+      display: none !important;
+    }
+  }
+  
+  /* Touch-friendly utilities */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+  
+  .touch-target-large {
+    min-height: 48px;
+    min-width: 48px;
+    touch-action: manipulation;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+  .animate-gradient {
+    animation: gradient 8s ease infinite;
+    background-size: 200% 200%;
+  }
+  .animate-slide-in-right {
+    animation: slide-in-right 0.5s ease-out;
+  }
+  .animate-slide-in-left {
+    animation: slide-in-left 0.5s ease-out;
+  }
+  .animate-morph {
+    animation: morph 8s ease-in-out infinite;
+  }
+  .animate-gradient-shift {
+    animation: gradient-shift 3s ease infinite;
+    background-size: 200% 200%;
+  }
+  .animate-rotate-gradient {
+    animation: rotate-gradient 10s linear infinite;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  .animate-text-shimmer {
+    animation: text-shimmer 3s linear infinite;
+    background-size: 200% auto;
+  }
+  .animate-scale-in {
+    animation: scale-in 0.5s ease-out;
+  }
+  .animate-rotate-scale {
+    animation: rotate-scale 4s ease-in-out infinite;
+  }
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+  .backdrop-blur-2xl {
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 75, 143, 0.3), 0 0 40px rgba(123, 61, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 75, 143, 0.5), 0 0 60px rgba(123, 61, 255, 0.4);
+  }
+}
+
+@keyframes grid {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotate-gradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 75, 143, 0.4), 0 0 40px rgba(123, 61, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 75, 143, 0.8), 0 0 80px rgba(123, 61, 255, 0.6);
+  }
+}
+
+@keyframes text-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate-scale {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Performance: Use GPU acceleration for animations */
+[class*="animate-"],
+.motion-safe\:animate-* {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize image loading */
+img {
+  content-visibility: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Reduce layout shifts */
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+

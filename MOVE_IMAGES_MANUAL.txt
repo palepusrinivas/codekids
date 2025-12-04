@@ -1,0 +1,28 @@
+================================================================================
+MANUAL FIX FOR NESTED FOLDER
+================================================================================
+
+The images are in: public\assest\assest\
+They need to be in: public\assest\
+
+QUICK FIX:
+================================================================================
+
+1. Open File Explorer
+2. Navigate to: codekids-react\public\assest\assest
+3. Select ALL files (Ctrl+A)
+4. Cut (Ctrl+X) or Copy (Ctrl+C)
+5. Go UP one folder to: codekids-react\public\assest
+6. Paste (Ctrl+V)
+7. Delete the now-empty "assest" folder inside public\assest
+
+OR use this command in PowerShell (run in codekids-react folder):
+================================================================================
+
+Get-ChildItem "public\assest\assest" -File | Move-Item -Destination "public\assest\" -Force
+Remove-Item "public\assest\assest" -Force
+
+================================================================================
+
+After moving, restart your dev server!
+
